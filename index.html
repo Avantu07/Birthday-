@@ -1,20 +1,112 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday 🎂</title>
+<style>
+body {
+  font-family: Arial;
+  text-align: center;
+  margin: 0;
+}
+
+.page {
+  display: none;
+  padding: 20px;
+}
+
+.active {
+  display: block;
+}
+
+/* First Page */
+#home {
+  background: pink;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+img {
+  width: 200px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Gallery Page */
+#gallery {
+  background: linear-gradient(to right, purple, blue);
+  color: white;
+}
+
+/* Video Page */
+#video {
+  background: linear-gradient(to right, orange, red);
+  color: white;
+}
+
+video {
+  width: 300px;
+  border-radius: 10px;
+}
+</style>
 </head>
-<body style="text-align:center; background:pink;">
+<body>
 
-<h1>🎉 Happy Birthday 🎂🥳</h1>
+<!-- HOME PAGE -->
+<div id="home" class="page active">
+  <h1>🎉 HAPPY BIRTHDAYYYY 🎂🥳</h1>
 
-<h2>Photos 📸</h2>
-<img src="WhatsApp Image 2026-04-07 at 20.22.36.jpeg" width="200">
-<img src="WhatsApp Image 2026-04-07 at 20.22.38.jpeg" width="200">
+  <!-- Add your 2 photos here -->
+  <img src="WhatsApp Image 2026-04-07 at 20.22.36.jpeg">
+  <img src="WhatsApp Image 2026-04-07 at 20.22.38.jpeg">
 
-<h2>Video 🎥</h2>
-<video width="300" controls>
-  <source src="video.mp4" type="video/mp4">
-</video>
+  <br>
+  <button onclick="showPage('gallery')">💖 Hit Me (Photos)</button>
+</div>
+
+<!-- GALLERY PAGE -->
+<div id="gallery" class="page">
+  <h2>All Photos 📸</h2>
+
+  <!-- Add ALL your photos here -->
+  <img src="WhatsApp Image 2026-04-07 at 20.22.36.jpeg">
+  <img src="WhatsApp Image 2026-04-07 at 20.22.38.jpeg">
+  <img src="WhatsApp Image 2026-04-07 at 20.22.39.jpeg">
+  <img src="WhatsApp Image 2026-04-07 at 20.22.40.jpeg">
+  <img src="WhatsApp Image 2026-04-07 at 20.22.41.jpeg">
+
+  <br>
+  <button onclick="showPage('video')">🎥 Hit Me (Video)</button>
+</div>
+
+<!-- VIDEO PAGE -->
+<div id="video" class="page">
+  <h2>Special Video 🎥</h2>
+
+  <video controls>
+    <source src="video.mp4" type="video/mp4">
+  </video>
+
+  <br>
+  <button onclick="showPage('home')">🏠 Back to Home</button>
+</div>
+
+<script>
+function showPage(pageId) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(pageId).classList.add('active');
+}
+</script>
 
 </body>
 </html>
