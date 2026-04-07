@@ -4,80 +4,110 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday 🎂</title>
+
 <style>
 body {
   font-family: Arial;
   text-align: center;
   margin: 0;
+  overflow-x: hidden;
 }
 
-.page {
-  display: none;
-  padding: 20px;
-}
+.page { display: none; padding: 20px; }
+.active { display: block; }
 
-.active {
-  display: block;
-}
+#home { background: pink; }
+#gallery { background: linear-gradient(to right, purple, blue); color: white; }
+#video { background: linear-gradient(to right, orange, red); color: white; }
 
-/* First Page */
-#home {
-  background: pink;
-}
-
-h1 {
-  font-size: 40px;
-}
+h1 { font-size: 40px; }
 
 img {
-  width: 1000px;
-  margin: 90px;
-  border-radius: 90px;
+  width: 200px;
+  margin: 10px;
+  border-radius: 10px;
 }
 
 button {
-  padding: 30px 40px;
-  margin: 40px;
-  font-size: 46px;
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 16px;
   cursor: pointer;
-}
-
-/* Gallery Page */
-#gallery {
-  background: linear-gradient(to right, purple, blue);
-  color: white;
-}
-
-/* Video Page */
-#video {
-  background: linear-gradient(to right, orange, red);
-  color: white;
 }
 
 video {
   width: 300px;
   border-radius: 10px;
 }
+
+/* 🎈 Balloons LEFT & RIGHT */
+.balloons-left, .balloons-right {
+  position: fixed;
+  bottom: -150px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  pointer-events: none;
+}
+
+.balloons-left { left: 10px; }
+.balloons-right { right: 10px; }
+
+.balloons-left img, .balloons-right img {
+  width: 70px;
+  animation: floatUp 6s linear infinite;
+}
+
+.balloons-left img:nth-child(2),
+.balloons-right img:nth-child(2) {
+  animation-delay: 2s;
+}
+
+.balloons-left img:nth-child(3),
+.balloons-right img:nth-child(3) {
+  animation-delay: 4s;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(-800px); opacity: 0; }
+}
 </style>
+
 </head>
 <body>
 
-<!-- HOME PAGE -->
+<!-- 🎈 LEFT SIDE -->
+<div class="balloons-left">
+  <img src="balloon.png">
+  <img src="balloon.png">
+  <img src="balloon.png">
+</div>
+
+<!-- 🎈 RIGHT SIDE -->
+<div class="balloons-right">
+  <img src="balloon.png">
+  <img src="balloon.png">
+  <img src="balloon.png">
+</div>
+
+<!-- 🎉 HOME PAGE -->
 <div id="home" class="page active">
   <h1>🎉 HAPPY BIRTHDAYYYY 🎂🥳</h1>
 
-  <!-- Add your 2 photos here -->
+  <!-- YOUR 2 PHOTOS -->
   <img src="WhatsApp Image 2026-04-07 at 20.22.36.jpeg">
- 
+  <img src="WhatsApp Image 2026-04-07 at 20.22.38.jpeg">
+
   <br>
   <button onclick="showPage('gallery')">💖 Hit Me (Photos)</button>
 </div>
 
-<!-- GALLERY PAGE -->
+<!-- 📸 GALLERY PAGE -->
 <div id="gallery" class="page">
   <h2>All Photos 📸</h2>
 
-  <!-- Add ALL your photos here -->
   <img src="WhatsApp Image 2026-04-07 at 20.22.36.jpeg">
   <img src="WhatsApp Image 2026-04-07 at 20.22.38.jpeg">
   <img src="WhatsApp Image 2026-04-07 at 20.22.39.jpeg">
@@ -88,7 +118,7 @@ video {
   <button onclick="showPage('video')">🎥 Hit Me (Video)</button>
 </div>
 
-<!-- VIDEO PAGE -->
+<!-- 🎥 VIDEO PAGE -->
 <div id="video" class="page">
   <h2>Special Video 🎥</h2>
 
@@ -97,7 +127,7 @@ video {
   </video>
 
   <br>
-  <button onclick="showPage('home')">🏠 Back to Home</button>
+  <button onclick="showPage('home')">🏠 Back</button>
 </div>
 
 <script>
